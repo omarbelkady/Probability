@@ -4,23 +4,37 @@
 ## 1. Probability Density Function (PDF) & Cumulative Distribution Function (CDF) 
 
 
-### Probability Density Function (PDF) - Defines the probability distribution of a **continuous** random variable. 
+### Probability Density Function (PDF) 
+- Defines the probability distribution of a **continuous** random variable. 
 
 
-- The probability of the variable lying within a range \([a, b]\) is given by: $$ P(a \leq X \leq b) = \int_{a}^{b} f(x)\,dx $$ 
+- The probability of the variable lying within a range \([a, b]\) is given by:
+
+  $$
+  P(a \leq X \leq b) = \int_{a}^{b} f(x)\,dx $$ 
 
 - The total area under the PDF curve is **1**. 
 
-- **Example:** If \(X\) follows an exponential distribution with rate \(\lambda\): $$ f(x) = \lambda e^{-\lambda x}, \quad x \ge 0 $$
+- **Example:** If \(X\) follows an exponential distribution with rate \(\lambda\):
+
+$$ 
+f(x) = \lambda e^{-\lambda x}, \quad x \ge 0 $$
 
 
 
  ### Cumulative Distribution Function (CDF)
 
-- Gives the probability that the variable takes a value \(\leq x\): $$ F(x) = P(X \le x) $$
+- Gives the probability that the variable takes a value \(\leq x\):
+  
+$$ F(x) = P(X \le x) $$
 
+- For continuous random variables:
 
-- For continuous random variables: $$ F(x) = \int_{-\infty}^{x} f(t)\,dt $$ - **Example:** CDF of an exponential distribution: $$ F(x) = 1 - e^{-\lambda x}, \quad x \ge 0 $$ 
+$$ F(x) = \int_{-\infty}^{x} f(t)\,dt $$
+
+- **Example:** CDF of an exponential distribution:
+ 
+$$ F(x) = 1 - e^{-\lambda x}, \quad x \ge 0 $$ 
 
 ## 2. Continuous Random Variables (CRV) 
 
@@ -28,68 +42,140 @@
 - Can take any real value within an interval. - Defined using a **PDF**. - 
 
 
-**Expected value (mean):** $$ E[X] = \int_{-\infty}^{\infty} x\,f(x)\,dx $$ 
+**Expected value (mean):** 
 
- **Variance:** $$ \operatorname{Var}(X) = E[(X - E[X])^2] = \int_{-\infty}^{\infty} (x - E[X])^2\,f(x)\,dx $$ 
+$$ E[X] = \int_{-\infty}^{\infty} x\,f(x)\,dx $$ 
+
+ **Variance:** 
+	
+ $$
+\mathrm{Var}(X) = E[(X - E[X])^2] = E[X^2] - (E[X])^2
+$$
 
 
-### Solving Problems 
-
-- **Finding PDF from CDF:** Differentiate \( F(x) \) to get \( f(x) \). 
--  **Calculating probabilities:** Use integration of the PDF.
+-  **Calculating probabilities:**
+-  Use integration of the PDF.
 
 ### 3.1 Binomial Distribution 
 
-- Describes the number of **successes** in \( n \) independent Bernoulli trials.
- - **Parameters:** \( n \) (number of trials), \( p \) (success probability per trial). 
- - **Probability Mass Function (PMF):** $$ P(X=k) = \binom{n}{k} p^k (1-p)^{n-k} $$ 
- - **Expected value:** \( E[X] = np \)
- 
- - **Variance:** \( \operatorname{Var}(X) = np(1-p) \)
- 
- ### Probability Mass Function (PMF) 
 
-$$ P(X=k) = \binom{n}{k} p^k (1-p)^{n-k} $$ 
- 
- - **Expected value:** \( E[X] = \lambda \)
+Describes the number of successes in \( n \) independent Bernoulli trials.
+
+**Parameters:**
+- \( n \): number of trials,
+- \( p \): success probability per trial.
+
+**Probability Mass Function (PMF):**
+	
+ $$
+P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}
+$$
+
+**Expected Value:**
+
+$$
+E[X] = np
+$$
+
+**Variance:**
+
+$$ \mathrm{Var}(X) = E[(X - E[X])^2] = E[X^2] - (E[X])^2 $$
+
+# Mean, Std, Variance, and Covariance
+
+## 1. Mean ($\mu$)
 
 
-#### Mean, Std, Variance, and Covariance 
-**1. Mean (\(\mu\))** The mean (or average) of a set of \(N\) data points \(x_1, x_2, \dots, x_N\) is: 
+$$
+\mu = \frac{\sum_{i=1}^{N} x_i}{N}
+$$
 
-$$ \mu = \frac{\sum_{i=1}^{N} x_i}{N} $$ 
+## 2. Variance ($\sigma^2$)
 
-**2. Variance (\(\sigma^2\))** The variance measures how spread out the data is from the mean: $$ \sigma^2 = \frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N} $$ 
+The variance measures how spread out the data is from the mean:
 
-**3. Standard Deviation (\(\sigma\))** The standard deviation is the square root of the variance: $$ \sigma = \sqrt{\frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N}} $$ 
+$$
+\sigma^2 = \frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N}
+$$
 
-**4. Covariance** Covariance measures how two variables \(X\) and \(Y\) change together: $$ \mathrm{Cov}(X, Y) = \frac{\sum_{i=1}^{N} (x_i - \bar{x})(y_i - \bar{y})}{N} $$ 
+## 3. Standard Deviation ($\sigma\$)
 
-### 3.2 Poisson Distribution 
+The standard deviation is the square root of the variance:
 
-- Models **rare events** occurring in a fixed interval of time or space. 
+$$
+\sigma = \sqrt{\frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N}}
+$$
 
-**Parameter:** \( \lambda \) (expected number of events per interval). 
+## 4. Covariance
 
-**PMF:** $$ P(X=k) = \frac{e^{-\lambda} \lambda^k}{k!} $$ - 
-**Expected value:** \( E[X] = \lambda \) 
+Covariance measures how two variables \(X\) and \(Y\) change together:
 
-**Variance:** \( \operatorname{Var}(X) = \lambda \)
+$$
+\mathrm{Cov}(X, Y)
+= \frac{\sum_{i=1}^{N} (x_i - \bar{x})(y_i - \bar{y})}{N}
+$$
+   
+### 3.2 Poisson Distribution
+
+- Models **rare events** occurring in a fixed interval of time or space.
+
+**Parameter:**  
+
+(expected number of events per interval).
+
+**PMF:**
+
+$$
+P(X = k) = \frac{e^{-\lambda} \,\lambda^k}{k!}
+$$
+
+**Expected Value:**
+
+$$
+E[X] = \lambda
+$$
+
+**Variance:**
+
+$$
+\mathrm{Var}(X) = \lambda
+$$
+
 
  ### 3.3 Hypergeometric Distribution 
- - Models the number of **successes** when selecting a sample **without replacement**.
- - **Parameters:** \( N \) (population size), \( K \) (number of successes in the population), \( n \) (sample size). 
+ 
+  **Parameters**:
+  - \(N\): total population size
+  - \(K\): number of successes in the population
+  - \(n\): sample size
 
- - **PMF:** $$ P(X=k) = \frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}} $$
+**Random Variable**: \(X\),
+-  the number of observed successes in the sample (without replacement)
 
-- **Expected value:** $$ E[X] = n\frac{K}{N} $$ 
+**PMF:**
+
+$$
+	P(X = x) = \frac{\binom{K}{x} \, \binom{N - K}{n - x}}{\binom{N}{n}}
+$$
+
 
 ### 3.4 Geometric Distribution 
+
 - Models the number of trials until the **first success**. 
 
-- **PMF:** $$ P(X=k) = (1-p)^{k-1}p $$
+**PMF:**
 
-- **Expected value:** $$ E[X] = \frac{1}{p} $$ 
+$$
+	P(X=k) = (1-p)^{k-1}p
+$$
+
+
+- **Expected value:**
+
+$$
+	E[X] = \frac{1}{p}
+$$ 
+
 
 ## 4. Additional Important Theorems in Probability 
 
@@ -97,24 +183,22 @@ $$ \mu = \frac{\sum_{i=1}^{N} x_i}{N} $$
 
 - As the number of trials increases, the sample mean converges to the expected value. 
 
-- **Types:** 
-- **Weak Law:** Convergence in probability. 
-- **Strong Law:** Almost sure convergence.
+**Types:** 
+  **Weak Law:** Convergence in probability. 
+  **Strong Law:** Almost sure convergence.
 
-### Central Limit Theorem
-- For a large enough sample size, the sampling distribution of the sample mean approaches a normal distribution regardless of the population distribution. 
-
-- If the population mean is \( \mu \) and standard deviation is \( \sigma \), then: $$ \bar{X} \sim N\left(\mu, \frac{\sigma^2}{n}\right) $$ - 
+$$
+	\bar{X} \sim N\left(\mu, \frac{\sigma^2}{n}\right)
+$$  
 
 - When population variance is unknown,
 
 
 - **Student's t-distribution** is used. 
 
-### Reproductive Theorem
-- If independent random variables belong to a particular distribution (e.g., normal, gamma, Poisson), then their sum or any linear combination also follows the same type of distribution. 
+![image](https://github.com/user-attachments/assets/3ffb9409-53d4-47fb-809b-b14f6e340542)
 
-- **Example:** If \( X_1, X_2, \dots, X_n \) are independent normal variables, then any linear combination is normally distributed. 
+
 
 ### Contributions of Gosset and Slutsky 
 
@@ -126,7 +210,8 @@ $$ \mu = \frac{\sum_{i=1}^{N} x_i}{N} $$
 #### Slutsky's Theorem 
 - If a sequence of random variables converges in probability to a constant \( c \), and another sequence has a limiting distribution, then the product converges in distribution to \( c \) times the limiting distribution of the other sequence.
 
-- Important in asymptotic analysis and regression theory. 
+- Important in asymptotic analysis and regression theory.
+  
 ## 5. Summary 
 
 - **PDF/CDF:** 
@@ -174,56 +259,106 @@ $$ P(A \cup B) = P(A) + P(B) $$
 	 - **Continuous:** Takes uncountable values. 
 	 ### Expectation and Moments
 	 #### Expected Value (Mean) 
-	 - **Discrete:** $$ E[X] = \sum x\,P(X=x) $$ 
-	 - **Continuous:** $$ E[X] = \int_{-\infty}^{\infty} x\,f(x)\,dx $$ 
-	 - **Properties:** $$ E[aX + b] = a\,E[X] + b $$ $$ E[X + Y] = E[X] + E[Y] $$ 
+	 - **Discrete:**
+    		$$ E[X] = \sum x\,P(X=x) $$ 
+	 - **Continuous:**
+   		$$ E[X] = \int_{-\infty}^{\infty} x\,f(x)\,dx $$ 
+	 - **Properties:**
+  	 	$$ E[aX + b] = a\,E[X] + b $$
+    		$$ E[X + Y] = E[X] + E[Y] $$ 
 #### Variance and Standard Deviation 
-- **Variance:** $$ \operatorname{Var}(X) = E[(X - E[X])^2] = E[X^2] - (E[X])^2 $$
-- **Standard Deviation:** $$ \sigma = \sqrt{\operatorname{Var}(X)} $$ 
-- **Properties:** $$ \operatorname{Var}(aX + b) = a^2\,\operatorname{Var}(X) $$ 
+- **Variance:**
+  	$$ \operatorname{Var}(X) = E[(X - E[X])^2] = E[X^2] - (E[X])^2 $$
+- **Standard Deviation:**
+  	$$ \sigma = \sqrt{\operatorname{Var}(X)} $$ 
+- **Properties:**
+  	$$ \operatorname{Var}(aX + b) = a^2\,\operatorname{Var}(X) $$ 
 
-- For independent \(X\) and \(Y\): $$ \operatorname{Var}(X+Y) = \operatorname{Var}(X) + \operatorname{Var}(Y) $$ 
+- For independent \(X\) and \(Y\):
+  	$$ \operatorname{Var}(X+Y) = \operatorname{Var}(X) + \operatorname{Var}(Y) $$ 
 
 #### Covariance and Correlation 
-- **Covariance:** $$ \operatorname{Cov}(X, Y) = E[(X-\mu_X)(Y-\mu_Y)] = E[XY] - E[X]E[Y] $$
 
-- **Correlation Coefficient:** $$ \rho = \frac{\operatorname{Cov}(X,Y)}{\sigma_X \sigma_Y} $$
+**Covariance:** 
+	$$ \operatorname{Cov}(X, Y) = E[(X-\mu_X)(Y-\mu_Y)] = E[XY] - E[X]E[Y] $$
+
+- **Correlation Coefficient:**
+$$ \rho = \frac{\operatorname{Cov}(X,Y)}{\sigma_X \sigma_Y} $$
+
 - \(-1 \le \rho \le 1\) - \(\rho = \pm1\) indicates a perfect linear relationship. - \(\rho = 0\) indicates no linear relationship. 
 
 #### Moment Generating Functions (MGF) 
 
-- **Definition:** $$ M_X(t) = E[e^{tX}] $$ 
+- **Definition:**
+  $$ M_X(t) = E[e^{tX}] $$
+
 - **Properties:** 
 	- Uniquely determines the distribution. 
-	- Moments can be derived as: $$ E[X^n] = \frac{d^n}{dt^n}M_X(t)\Big|_{t=0} $$ 
+	- Moments can be derived as:
+   		$$ E[X^n] = \frac{d^n}{dt^n}M_X(t)\Big|_{t=0} $$ 
 
-- For independent variables: $$ M_{X+Y}(t) = M_X(t) \cdot M_Y(t) $$ 
+- For independent variables:
+  	$$ M_{X+Y}(t) = M_X(t) \cdot M_Y(t) $$ 
 
 ## 3. Discrete Probability Distributions 
 ### Bernoulli Distribution 
 - Models a single trial with success probability \(p\).
-- **PMF:** $$ P(X=1)=p,\quad P(X=0)=1-p $$ 
+- **PMF:**
+  	$$ P(X=1)=p,\quad P(X=0)=1-p $$ 
 - **Expected Value:** \( E[X]=p \) 
 - **Variance:** \( \operatorname{Var}(X)=p(1-p) \) 
 
-- **PDF:** $$ f(x)=\frac{1}{b-a},\quad a \le x \le b $$
-- **Expected Value:** $$ E[X]=\frac{a+b}{2} $$ - **Variance:** $$ \operatorname{Var}(X)=\frac{(b-a)^2}{12} $$ 
+- **PDF:**
+  	 $$ f(x)=\frac{1}{b-a},\quad a \le x \le b $$
+
+- **Expected Value:**
+   $$ E[X]=\frac{a+b}{2} $$
+- **Variance:**
+  $$ \operatorname{Var}(X)=\frac{(b-a)^2}{12} $$ 
+
 ### Normal (Gaussian) Distribution
-- **PDF:** $$ f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}\exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right) $$ 
-- **Standard Normal:** \( Z \sim N(0,1) \) 
-- **Transformation:** \( Z = \frac{X-\mu}{\sigma} \) 
-- **68-95-99.7 Rule:** Approximately \(68\%\), \(95\%\), and \(99.7\%\) of data lie within 1, 2, and 3 standard deviations, respectively. 
+- **PDF:**
+  $$ f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}\exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right) $$ 
+- **Standard Normal:**
+  \( Z \sim N(0,1) \) 
+- **Transformation:**
+  \( Z = \frac{X-\mu}{\sigma} \) 
+- **68-95-99.7 Rule:**
+  Approximately \(68\%\), \(95\%\), and \(99.7\%\) of data lie within 1, 2, and 3 standard deviations, respectively. 
 ### Exponential Distribution
- - **PDF:** $$ f(x)=\lambda e^{-\lambda x}, \quad x \ge 0 $$
- - **Expected Value:** $$ E[X]=\frac{1}{\lambda} $$
- - **Variance:** $$ \operatorname{Var}(X)=\frac{1}{\lambda^2} $$
- - **Memoryless Property:** $$ P(X>s+t \mid X>s)=P(X>t) $$
+ - **PDF:**
+   $$ f(x)=\lambda e^{-\lambda x}, \quad x \ge 0 $$
+ - **Expected Value:**
+   $$ E[X]=\frac{1}{\lambda} $$
+ - **Variance:**
+   $$ \operatorname{Var}(X)=\frac{1}{\lambda^2} $$
+ - **Memoryless Property:**
+   $$ P(X>s+t \mid X>s)=P(X>t) $$
  
  ### Gamma Distribution 
  - **Parameters:** \( \alpha \) (shape) and \( \beta \) (scale). 
- - **PDF:** $$ f(x)=\frac{x^{\alpha-1}e^{-x/\beta}}{\beta^\alpha\Gamma(\alpha)} $$ - **Expected Value:** $$ E[X]=\alpha\beta $$ - **Variance:** $$ \operatorname{Var}(X)=\alpha\beta^2 $$ 
+ - **PDF:**
+   $$
+   f(x)=\frac{x^{\alpha-1}e^{-x/\beta}}{\beta^\alpha\Gamma(\alpha)}
+   $$
+   
+   - **Expected Value:**
+   $$
+	E[X]=\alpha\beta
+   $$
+   - **Variance:**
+   $$ \operatorname{Var}(X)=\alpha\beta^2 $$ 
 
-### Beta Distribution - **Models:** Probabilities or proportions. - **PDF:** $$ f(x)=\frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)},\quad 0\le x\le 1 $$ - **Expected Value:** $$ E[X]=\frac{\alpha}{\alpha+\beta} $$ - **Variance:** $$ \operatorname{Var}(X)=\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)} $$ 
+### Beta Distribution 
+
+- **Models:** Probabilities or proportions.
+- **PDF:**
+  $$ f(x)=\frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)},\quad 0\le x\le 1 $$
+
+- **Expected Value:**
+$$ E[X]=\frac{\alpha}{\alpha+\beta} $$
+- **Variance:**
+- $$ \operatorname{Var}(X)=\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)} $$ 
 
 ### t-Distribution 
 - Used when estimating the mean with unknown population variance.
@@ -236,6 +371,7 @@ $$ P(A \cup B) = P(A) + P(B) $$
 - **Parameter:** \( k \) (degrees of freedom). 
 - **Expected Value:** \( E[X]=k \)
 - **Variance:** \( \operatorname{Var}(X)=2k \) 
+
 ### F-Distribution 
 - Ratio of two chi-square distributed variables. 
 
@@ -246,30 +382,58 @@ $$ P(A \cup B) = P(A) + P(B) $$
 
 ### Joint Probability Distributions 
 - Describes the distribution of two or more random variables. 
-- **Joint CDF:** $$ F(x,y)=P(X\le x,\; Y\le y) $$ 
-- **Joint PMF (discrete):** $$ p(x,y)=P(X=x,\; Y=y) $$
-- **Joint PDF (continuous):** $$ \iint f(x,y)\,dx\,dy=1 $$ 
+- **Joint CDF:**
+$$
+F(x,y)=P(X\le x,\; Y\le y)
+$$ 
+- **Joint PMF (discrete):**
+$$
+p(x,y)=P(X=x,\; Y=y)
+$$
+
+- **Joint PDF (continuous):**
+$$
+\iint f(x,y)\,dx\,dy=1
+$$ 
 
 ### Marginal Distributions
 
 - Derived by summing or integrating out other variables. 
 
-- **Discrete:** $$ P_X(x)=\sum_y P(X=x, Y=y) $$
+- **Discrete:**
+$$
+P_X(x)=\sum_y P(X=x, Y=y)
+$$
 
-- **Continuous:** $$ f_X(x)=\int f(x,y)\,dy $$
+- **Continuous:**
+$$
+f_X(x)=\int f(x,y)\,dy
+$$
 
 ### Conditional Distributions 
 
-- **Discrete:** $$ P(X=x|Y=y)=\frac{P(X=x,Y=y)}{P(Y=y)} $$ 
+- **Discrete:**
+$$
+P(X=x|Y=y)=\frac{P(X=x,Y=y)}{P(Y=y)}
+$$ 
 
-- **Continuous:** $$ f(x|y)=\frac{f(x,y)}{f_Y(y)} $$ 
+- **Continuous:**
+$$
+f(x|y)=\frac{f(x,y)}{f_Y(y)}
+$$ 
 
 ### Independence of Random Variables
 
-- \(X\) and \(Y\) are independent if: $$ f(x,y)=f_X(x)\cdot f_Y(y) \quad \text{for all } x,y $$
+- \(X\) and \(Y\) are independent if:
 
-- For independent variables: 
--  \(E[XY]=E[X]E[Y]\) - \(\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)\) --- 
+$$
+f(x,y)=f_X(x)\cdot f_Y(y) \quad \text{for all } x,y
+$$
+
+For independent variables: 
+-  \(E[XY]=E[X]E[Y]\)
+- \(\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)\) --- 
+
 
 ## 6. Sampling Distributions and Limit Theorems 
 
