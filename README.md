@@ -75,9 +75,12 @@ $$ \mu = \frac{\sum_{i=1}^{N} x_i}{N} $$
 
 - **Variance:** \( \operatorname{Var}(X) = \lambda \)
 
- ### 3.3 Hypergeometric Distribution - Models the number of **successes** when selecting a sample **without replacement**. - **Parameters:** \( N \) (population size), \( K \) (number of successes in the population), \( n \) (sample size). 
+ ### 3.3 Hypergeometric Distribution 
+ - Models the number of **successes** when selecting a sample **without replacement**.
+ - **Parameters:** \( N \) (population size), \( K \) (number of successes in the population), \( n \) (sample size). 
 
- - **PMF:** $$ P(X=k) = \frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}} $$ - **Expected value:** $$ E[X] = n\frac{K}{N} $$ 
+ - **PMF:** $$ P(X=k) = \frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}} $$
+- **Expected value:** $$ E[X] = n\frac{K}{N} $$ 
 ### 3.4 Geometric Distribution 
 - Models the number of trials until the **first success**. 
 
