@@ -66,6 +66,7 @@ $$ \mu = \frac{\sum_{i=1}^{N} x_i}{N} $$
 **4. Covariance** Covariance measures how two variables \(X\) and \(Y\) change together: $$ \mathrm{Cov}(X, Y) = \frac{\sum_{i=1}^{N} (x_i - \bar{x})(y_i - \bar{y})}{N} $$ 
 
 ### 3.2 Poisson Distribution 
+
 - Models **rare events** occurring in a fixed interval of time or space. 
 
 **Parameter:** \( \lambda \) (expected number of events per interval). 
@@ -73,14 +74,16 @@ $$ \mu = \frac{\sum_{i=1}^{N} x_i}{N} $$
 **PMF:** $$ P(X=k) = \frac{e^{-\lambda} \lambda^k}{k!} $$ - 
 **Expected value:** \( E[X] = \lambda \) 
 
-- **Variance:** \( \operatorname{Var}(X) = \lambda \)
+**Variance:** \( \operatorname{Var}(X) = \lambda \)
 
  ### 3.3 Hypergeometric Distribution 
  - Models the number of **successes** when selecting a sample **without replacement**.
  - **Parameters:** \( N \) (population size), \( K \) (number of successes in the population), \( n \) (sample size). 
 
  - **PMF:** $$ P(X=k) = \frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}} $$
+
 - **Expected value:** $$ E[X] = n\frac{K}{N} $$ 
+
 ### 3.4 Geometric Distribution 
 - Models the number of trials until the **first success**. 
 
@@ -103,7 +106,9 @@ $$ \mu = \frac{\sum_{i=1}^{N} x_i}{N} $$
 
 - If the population mean is \( \mu \) and standard deviation is \( \sigma \), then: $$ \bar{X} \sim N\left(\mu, \frac{\sigma^2}{n}\right) $$ - 
 
-- When population variance is unknown, 
+- When population variance is unknown,
+
+
 - **Student's t-distribution** is used. 
 
 ### Reproductive Theorem
@@ -122,7 +127,9 @@ $$ \mu = \frac{\sum_{i=1}^{N} x_i}{N} $$
 - If a sequence of random variables converges in probability to a constant \( c \), and another sequence has a limiting distribution, then the product converges in distribution to \( c \) times the limiting distribution of the other sequence.
 
 - Important in asymptotic analysis and regression theory. 
-## 5. Summary - **PDF/CDF:** 
+## 5. Summary 
+
+- **PDF/CDF:** 
 
 Fundamental for continuous variables. 
 - **Discrete Distributions:** Includes Binomial, Poisson, Geometric, and Hypergeometric.
@@ -153,7 +160,8 @@ $$ P(A \cup B) = P(A) + P(B) $$
 - **Independence:** \(A\) and \(B\) are independent if: $$ P(A \cap B) = P(A) \cdot P(B) $$ 
 - **Law of Total Probability:** $$ P(A) = \sum_i P(A|B_i)P(B_i) $$ 
 
-### Bayes' Theorem - **Formula:** $$ P(A|B) = \frac{P(B|A) \times P(A)}{P(B)} $$ 
+### Bayes' Theorem 
+- **Formula:** $$ P(A|B) = \frac{P(B|A) \times P(A)}{P(B)} $$ 
 
 - **Components:** 
 	- \(P(A)\): Prior probability. 
@@ -176,7 +184,8 @@ $$ P(A \cup B) = P(A) + P(B) $$
 
 - For independent \(X\) and \(Y\): $$ \operatorname{Var}(X+Y) = \operatorname{Var}(X) + \operatorname{Var}(Y) $$ 
 
-#### Covariance and Correlation - **Covariance:** $$ \operatorname{Cov}(X, Y) = E[(X-\mu_X)(Y-\mu_Y)] = E[XY] - E[X]E[Y] $$
+#### Covariance and Correlation 
+- **Covariance:** $$ \operatorname{Cov}(X, Y) = E[(X-\mu_X)(Y-\mu_Y)] = E[XY] - E[X]E[Y] $$
 
 - **Correlation Coefficient:** $$ \rho = \frac{\operatorname{Cov}(X,Y)}{\sigma_X \sigma_Y} $$
 - \(-1 \le \rho \le 1\) - \(\rho = \pm1\) indicates a perfect linear relationship. - \(\rho = 0\) indicates no linear relationship. 
@@ -192,16 +201,23 @@ $$ P(A \cup B) = P(A) + P(B) $$
 
 ## 3. Discrete Probability Distributions 
 ### Bernoulli Distribution 
-- Models a single trial with success probability \(p\). - **PMF:** $$ P(X=1)=p,\quad P(X=0)=1-p $$ 
+- Models a single trial with success probability \(p\).
+- **PMF:** $$ P(X=1)=p,\quad P(X=0)=1-p $$ 
 - **Expected Value:** \( E[X]=p \) 
 - **Variance:** \( \operatorname{Var}(X)=p(1-p) \) 
 
- - **PDF:** $$ f(x)=\frac{1}{b-a},\quad a \le x \le b $$ - **Expected Value:** $$ E[X]=\frac{a+b}{2} $$ - **Variance:** $$ \operatorname{Var}(X)=\frac{(b-a)^2}{12} $$ 
- - ### Normal (Gaussian) Distribution - **PDF:** $$ f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}\exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right) $$ 
- - **Standard Normal:** \( Z \sim N(0,1) \) 
- - **Transformation:** \( Z = \frac{X-\mu}{\sigma} \) 
- - **68-95-99.7 Rule:** Approximately \(68\%\), \(95\%\), and \(99.7\%\) of data lie within 1, 2, and 3 standard deviations, respectively. 
- - ### Exponential Distribution - **PDF:** $$ f(x)=\lambda e^{-\lambda x}, \quad x \ge 0 $$ - **Expected Value:** $$ E[X]=\frac{1}{\lambda} $$ - **Variance:** $$ \operatorname{Var}(X)=\frac{1}{\lambda^2} $$ - **Memoryless Property:** $$ P(X>s+t \mid X>s)=P(X>t) $$
+- **PDF:** $$ f(x)=\frac{1}{b-a},\quad a \le x \le b $$
+- **Expected Value:** $$ E[X]=\frac{a+b}{2} $$ - **Variance:** $$ \operatorname{Var}(X)=\frac{(b-a)^2}{12} $$ 
+### Normal (Gaussian) Distribution
+- **PDF:** $$ f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}\exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right) $$ 
+- **Standard Normal:** \( Z \sim N(0,1) \) 
+- **Transformation:** \( Z = \frac{X-\mu}{\sigma} \) 
+- **68-95-99.7 Rule:** Approximately \(68\%\), \(95\%\), and \(99.7\%\) of data lie within 1, 2, and 3 standard deviations, respectively. 
+### Exponential Distribution
+ - **PDF:** $$ f(x)=\lambda e^{-\lambda x}, \quad x \ge 0 $$
+ - **Expected Value:** $$ E[X]=\frac{1}{\lambda} $$
+ - **Variance:** $$ \operatorname{Var}(X)=\frac{1}{\lambda^2} $$
+ - **Memoryless Property:** $$ P(X>s+t \mid X>s)=P(X>t) $$
  
  ### Gamma Distribution 
  - **Parameters:** \( \alpha \) (shape) and \( \beta \) (scale). 
